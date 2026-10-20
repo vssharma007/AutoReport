@@ -1,0 +1,30 @@
+title: "Monthly Sales Report"
+data_source: "sample_data/sales.csv"
+sections:
+  - name: "Summary Statistics"
+    kind: "summary_stats"
+
+  - name: "Revenue by Region"
+    kind: "group_by"
+    group_col: "region"
+    value_col: "revenue"
+    agg: "sum"
+
+  - name: "Revenue Trend by Month"
+    kind: "chart"
+    chart:
+      type: "line"
+      x: "month"
+      y: "revenue"
+      title: "Revenue Over Time"
+
+  - name: "Units Sold by Region"
+    kind: "chart"
+    chart:
+      type: "bar"
+      x: "region"
+      y: "units_sold"
+      title: "Units Sold per Region"
+
+  - name: "Raw Data"
+    kind: "table"
